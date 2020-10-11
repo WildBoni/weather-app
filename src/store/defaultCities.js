@@ -5,7 +5,7 @@ export const defaultCities = {
   selectedCity: 997,
   cities: {
     997:  {
-      name: 'Turin',
+      name: 'Las Vegas',
       id: 997
     },
     998: {

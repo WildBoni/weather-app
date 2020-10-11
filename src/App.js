@@ -1,35 +1,48 @@
 import React from 'react';
-
 import {useDispatch} from 'react-redux';
-import {loadWeather} from './actions/weather.js';
-import {loadForecast} from './actions/forecast.js';
-import {addCity, removeCity} from './actions/cities.js';
+import {ThemeProvider} from 'styled-components';
 
-import {baseUrl} from './shared/baseUrl.js';
-import {defaultCities} from './store/defaultCities.js';
+import GlobalStyles from './styles/GlobalStyles';
+import theme from './styles/theme';
+
+import {loadWeather} from './actions/weather';
+import {loadForecast} from './actions/forecast';
+import {addCity, removeCity} from './actions/cities';
+
+import {apiUrl} from './shared/baseUrls';
+import {defaultCities} from './store/defaultCities';
+
+import MobileHomePage from './components/MobileHomePage';
 
 function App() {
   const dispatch = useDispatch();
-  // let city = 'ROME'
 
   let fetchDefaultCitiesWeather = () => Object
     .entries(defaultCities.cities)
     .forEach(([key,val]) => {
-      dispatch(loadWeather(`${baseUrl}weather?q=${val.name}&appid=${process.env.REACT_APP_OPENWEATHER_API}`))
+      dispatch(loadWeather(`${apiUrl}weather?q=${val.name}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`))
     });
 
+  let fetchSelectedCityForecast = () => dispatch(
+    loadForecast(`${apiUrl}forecast?q=MADRID&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`)
+  )
+
+  let addCity = () => dispatch(addCity('PARIS'))
+
+  let removeCity = () => dispatch(removeCity(997))
+
+  fetchDefaultCitiesWeather()
+  // fetchSelectedCityForecast()
+  // addCity()
+  // removeCity()
+
   return (
-    <div>
-        <button 
-          onClick={() => dispatch(
-            loadForecast(`${baseUrl}forecast?q=MADRID&appid=${process.env.REACT_APP_OPENWEATHER_API}`)
-          )} type="button">
-            forecast
-        </button>
-        <button onClick={() => fetchDefaultCitiesWeather()} type="button">add default cities weather</button>
-        <button onClick={() => dispatch(addCity('PARIS'))} type="button">add city</button>
-        <button onClick={() => dispatch(removeCity(997))} type="button">remove city</button>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div>
+        <GlobalStyles/>
+        <MobileHomePage/>
+      </div>
+    </ThemeProvider>
   );
 }
 
