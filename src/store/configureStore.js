@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import citiesReducer from '../reducers/cities';
 import weatherReducer from '../reducers/weather';
 import forecastReducer from '../reducers/forecast';
+import filtersReducer from '../reducers/filters';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -11,7 +12,8 @@ export default () => {
     combineReducers({
       cities: citiesReducer,
       weather: weatherReducer,
-      forecast: forecastReducer
+      forecast: forecastReducer,
+      filters: filtersReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
   );
