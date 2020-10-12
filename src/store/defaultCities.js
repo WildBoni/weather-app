@@ -2,19 +2,19 @@
 //TODO: Use a proper id generator and decide what to do with these data in production
 
 export const defaultCities = {
-  selectedCity: 997,
+  selectedCity: 5308655,
   cities: {
-    997:  {
-      name: 'Las Vegas',
-      id: 997
+    5308655:  {
+      name: 'Phoenix',
+      id: 5308655
     },
-    998: {
+    2643743: {
       name: 'London',
-      id: 998  
+      id: 2643743  
     },
-    999: {
+    4219762: {
       name: 'Rome',
-      id: 999
+      id: 4219762
     }
   }
 }

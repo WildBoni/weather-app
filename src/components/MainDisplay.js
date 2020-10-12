@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function MainDisplay() { 
+const Article = styled.article`
+	background-color: #f7f7f7;
+	width: 66%;
+`
 
-	const Article = styled.article`
-		background-color: #f7f7f7;
-		width: 66%;
-	`
-	
+function MainDisplay() { 
 	return (
 		<Article>
 			<h1>Turin</h1>

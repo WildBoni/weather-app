@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {ThemeProvider} from 'styled-components';
 
@@ -6,16 +6,19 @@ import GlobalStyles from './styles/GlobalStyles';
 import theme from './styles/theme';
 
 import {loadWeather} from './actions/weather';
-import {loadForecast} from './actions/forecast';
-import {addCity, removeCity} from './actions/cities';
+// import {addCity, removeCity} from './actions/cities';
 
 import {apiUrl} from './shared/baseUrls';
 import {defaultCities} from './store/defaultCities';
 
 import MobileHomePage from './components/MobileHomePage';
+import MobileSelectedCityContainer from './components/MobileSelectedCityContainer';
 
 function App() {
   const dispatch = useDispatch();
+  useEffect(() => {
+    fetchDefaultCitiesWeather();
+  }, [])
 
   let fetchDefaultCitiesWeather = () => Object
     .entries(defaultCities.cities)
@@ -23,25 +26,14 @@ function App() {
       dispatch(loadWeather(`${apiUrl}weather?q=${val.name}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`))
     });
 
-  let fetchSelectedCityForecast = () => dispatch(
-    loadForecast(`${apiUrl}forecast?q=MADRID&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`)
-  )
-
-  let addCity = () => dispatch(addCity('PARIS'))
-
-  let removeCity = () => dispatch(removeCity(997))
-
-  fetchDefaultCitiesWeather()
-  // fetchSelectedCityForecast()
-  // addCity()
-  // removeCity()
+  // let addCity = (cityId) => dispatch(addCity(cityId));
+  // let removeCity = (cityId) => dispatch(removeCity(cityId));
 
   return (
     <ThemeProvider theme={theme}>
-      <div>
         <GlobalStyles/>
         <MobileHomePage/>
-      </div>
+        <MobileSelectedCityContainer/>
     </ThemeProvider>
   );
 }

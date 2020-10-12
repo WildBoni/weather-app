@@ -14,7 +14,7 @@ export default produce((draft, action) => {
       draft.error = null;
       break;
     case actionTypes.LOAD_FORECAST_SUCCESS:
-      draft.details = action.payload;
+      draft.details['result'] = action.payload;
       draft.isLoading = false;
       draft.error = null;
       break;

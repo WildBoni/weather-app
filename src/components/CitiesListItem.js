@@ -3,10 +3,37 @@ import {useContext} from 'react';
 import {ThemeContext} from 'styled-components';
 import styled from 'styled-components';
 
+const Article = styled.article`
+	align-items: center;
+	background: ${props => props.styles[props.cardColor]};
+	color: white;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 20px;	
+	padding: 25px;	
+`
+
+const Details = styled.div`
+	flex-basis: 0;
+	flex-grow: 1;
+`
+
+const Weather = styled.div`
+	flex-basis: 0;
+	flex-grow: 1;
+	text-align: center;
+`
+
+const Temperature = styled.div`
+	flex-basis: 0;
+	flex-grow: 1;
+	text-align: right;
+`
+
 function CitiesListItem(props) {
 	const themeContext = useContext(ThemeContext);
 	let details = props.details;
-	console.log(details.icon)
 	let cardColor = '';
 	switch (details.icon) {
 		case '01d':
@@ -37,37 +64,9 @@ function CitiesListItem(props) {
 			cardColor = 'sunny';
 			break;
 	}
-	console.log(cardColor);
-	const Article = styled.article`
-		align-items: center;
-		background: ${themeContext[cardColor]};
-		color: white;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		margin: 20px;	
-		padding: 25px;	
-	`
-
-	const Details = styled.div`
-		flex-basis: 0;
-		flex-grow: 1;
-	`
-
-	const Weather = styled.div`
-		flex-basis: 0;
-		flex-grow: 1;
-		text-align: center;
-	`
-
-	const Temperature = styled.div`
-		flex-basis: 0;
-		flex-grow: 1;
-		text-align: right;
-	`
 
 	return(
-		<Article className="city-box">
+		<Article className="city-box" styles={themeContext} cardColor={cardColor}>
 			<Details>
 				<h2>{details.name}</h2>
 				<p>{details.time}</p>

@@ -1,20 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
 import moment from 'moment';
 import {useSelector} from 'react-redux';
 import {weatherIconUrl} from '../shared/baseUrls';
 import CitiesListItem from './CitiesListItem';
 
-const mapStateToProps = state => {
-	return {
-		locations: state.weather.locations
-	}
-}
-
-
 function CitiesList(props) {
 	const locations = useSelector(state => state.weather.locations);
-
 	return(
 		<>
 		{

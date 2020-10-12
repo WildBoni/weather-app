@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import UserGreetings from './UserGreetings';
 import CitiesContainer from './CitiesContainer';

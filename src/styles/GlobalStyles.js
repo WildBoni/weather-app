@@ -1,14 +1,13 @@
 import {createGlobalStyle} from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap');
-  
+
   body {
-    margin: 0;
+    background-color: ${props => props.theme.lightestGray};
     font-family: 'Poppins', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: ${props => props.theme.lightestGray};
+    margin: 0;
   }
 
   h1 {
@@ -21,6 +20,11 @@ const GlobalStyles = createGlobalStyle`
   h2 {
     font-size: ${props => props.theme.title2};
     line-height: 39px;
+    margin: 0;
+    padding: 0;
+  }
+
+  h3 {
     margin: 0;
     padding: 0;
   }
@@ -42,13 +46,15 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 600;
   }
 
+  .huge-text {
+    font-size: ${props => props.theme.huge};
+    font-weight: 700;
+  }
+
   .city-box {
     border-radius: 25px;
     box-shadow: 5px 10px 20px 0 rgba(0,0,0,0.17);
   }
-  
-  .cloudy {
-    background-color: ${props => props.theme.cloudy};
-  }
+
 `
 export default GlobalStyles;

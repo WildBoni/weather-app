@@ -1,9 +1,9 @@
 import * as actionTypes from './actionTypes';
 
 //LOAD FORECAST
-export const loadForecastRequest = city => ({ 
+export const loadForecastRequest = url => ({ 
   type: actionTypes.LOAD_FORECAST_REQUEST,
-  payload: city
+  payload: url
 })
 
 export const loadForecastSuccess = details => ({
@@ -17,9 +17,9 @@ export const loadForecastFailure = err => ({
   error: true
 })
 
-export const loadForecast = city => dispatch => {
-  dispatch(loadForecastRequest(city));
-  fetch(city)
+export const loadForecast = url => dispatch => {
+  dispatch(loadForecastRequest(url));
+  fetch(url)
     .then(response => {
       if(response.ok) {
         return response;
