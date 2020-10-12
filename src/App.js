@@ -1,24 +1,22 @@
 import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {ThemeProvider} from 'styled-components';
+import AppRouter, { history } from './routers/AppRouter';
 
 import GlobalStyles from './styles/GlobalStyles';
 import theme from './styles/theme';
 
 import {loadWeather} from './actions/weather';
 // import {addCity, removeCity} from './actions/cities';
-
 import {apiUrl} from './shared/baseUrls';
 import {defaultCities} from './store/defaultCities';
 
-import MobileHomePage from './components/MobileHomePage';
-import MobileSelectedCityContainer from './components/MobileSelectedCityContainer';
-
 function App() {
-  const dispatch = useDispatch();
   useEffect(() => {
     fetchDefaultCitiesWeather();
   }, [])
+  
+  let dispatch = useDispatch()
 
   let fetchDefaultCitiesWeather = () => Object
     .entries(defaultCities.cities)
@@ -32,8 +30,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
         <GlobalStyles/>
-        <MobileHomePage/>
-        <MobileSelectedCityContainer/>
+        <AppRouter />
     </ThemeProvider>
   );
 }

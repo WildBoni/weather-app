@@ -1,18 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import ScrollContainer from 'react-indiana-drag-scroll';
+import moment from 'moment';
 
-const TodayForecast = styled.div`
-  color: white;
-  margin: 45px 10px;
-`
-const ForecastContainer = styled.div`
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  position: relative;
-`
 const Forecast = styled.div`
   display: flex;
   align-items: center;
@@ -41,35 +31,18 @@ const Line = styled.div`
   background-color: white;
 `
 
-function SelectedCityTodayForecast() {
+function SelectedCityTodayForecast(props) {
+  let hourlyForecast = props.hourlyForecast;
+  let hour = moment.unix(hourlyForecast.dt).format('kk:mm');
+  let temperature = Math.round(hourlyForecast.temp);
   return(
-    <ScrollContainer>
-    <TodayForecast>
-      <ForecastContainer>
-        <Forecast>
-          <Time>Now</Time>
-          <Temperature>20°C</Temperature>
-        </Forecast>
-        <Line></Line>
-        <Forecast>
-          <Time>Now</Time>
-          <Temperature>20°C</Temperature>
-        </Forecast>
-        <Line></Line>
-        <Forecast>
-          <Time>Now</Time>
-          <Temperature>20°C</Temperature>
-        </Forecast>
-        <Line></Line>
-        <Forecast>
-          <Time>Now</Time>
-          <Temperature>20°C</Temperature>
-        </Forecast>
-        <Line></Line>
-      </ForecastContainer>
-      {/* <HourlyForecast/> */}
-    </TodayForecast>
-    </ScrollContainer>
+    <>
+      <Forecast>
+        <Time>{hour}</Time>
+        <Temperature>{temperature}°</Temperature>
+      </Forecast>
+      <Line></Line>
+    </>
   )
 }
 

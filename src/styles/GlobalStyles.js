@@ -29,6 +29,10 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
+  a {
+    text-decoration: none;
+  }
+  
   p {
     font-size: ${props => props.theme.default};
     line-height: 18px;

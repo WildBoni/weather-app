@@ -2,6 +2,7 @@ import React from 'react';
 import{useContext} from 'react';
 import {ThemeContext} from 'styled-components';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Menu = styled.nav`
   background-color: white;
@@ -34,14 +35,16 @@ function MobileMenuBar(props) {
 
   return(
     <Menu>
-      <Item underline="2px" styles={themeContext}>
-        <img src="images/Home.png" alt="Home" />
-      </Item>
-      <Item styles={themeContext}>
-        <img src="images/Search.png" alt="Search" />
+      <Link to="/">
+        <Item underline="2px" styles={themeContext}>
+          <img src="../images/Home.png" alt="Home" />
+        </Item>
+      </Link>
+      <Item onClick={props.setModal(true)} styles={themeContext}>
+        <img src="../images/Search.png" alt="Search" />
       </Item>
       <Item onClick={props.geolocation} styles={themeContext}>
-        <img src="images/Location.png" alt="Location" />
+        <img src="../images/Location.png" alt="Location" />
       </Item>
     </Menu>
   )

@@ -2,7 +2,6 @@ import React from 'react';
 
 import UserGreetings from './UserGreetings';
 import CitiesContainer from './CitiesContainer';
-import MobileMenuBar from './MobileMenuBar';
 
 import {userName} from '../shared/userName';
 
@@ -11,7 +10,6 @@ function MobileHomePage() {
     <>
       <UserGreetings utente={userName} />
       <CitiesContainer/>
-      <MobileMenuBar/>
     </>
   )
 }

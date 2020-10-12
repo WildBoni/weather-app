@@ -12,10 +12,12 @@ function CitiesList(props) {
 			Object.entries(locations).map(([key, val]) => {
 				let details = {
 					id: val.id,
+					lat: val.coord.lat,
+					lon: val.coord.lon,
 					name: val.name, 
 					weather: val.weather[0].main, 
 					icon: val.weather[0].icon,
-					iconUrl: `${weatherIconUrl}${val.weather[0].icon}@2x.png`, 
+					iconUrl: `${weatherIconUrl}${val.weather[0].icon}`, 
 					temperature: Math.round(val.main.temp), 
 					time: moment.unix(val.dt).format('dddd D, MMMM'),
 					hour: moment.unix(val.dt).format('kk:mm a')

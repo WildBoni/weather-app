@@ -8,17 +8,15 @@ const CardContainer = styled.div`
   margin: 20px 0 20px 20px;
 `
 
-function SelectedCityWeekForecastContainer() {
+function SelectedCityWeekForecastContainer(props) {
   return(
     <ScrollContainer>
       <CardContainer>
-        <SelectedCityWeekForecastCard/>
-        <SelectedCityWeekForecastCard/>
-        <SelectedCityWeekForecastCard/>
-        <SelectedCityWeekForecastCard/>
-        <SelectedCityWeekForecastCard/>
-        <SelectedCityWeekForecastCard/>
-        <SelectedCityWeekForecastCard/>
+        {
+          props.dailyForecast.map((forecast) => 
+              <SelectedCityWeekForecastCard key={forecast.dt} dailyForecast={forecast}/>
+          )
+        }
       </CardContainer>
     </ScrollContainer>
   )

@@ -7,6 +7,7 @@ const Button = styled.button`
 	align-items: center;
 	border: none;
 	color: ${props => props.styles.blue};
+	cursor:pointer;
 	display: flex;
 	font-size: ${props => props.styles.bigger};
 	font-weight: 600;

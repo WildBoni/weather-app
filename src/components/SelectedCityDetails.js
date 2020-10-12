@@ -20,12 +20,11 @@ h3 {
 }
 `
 function SelectedCityDetails(props) { 
-	console.log(props)	
 	return (
 		<Article>
-			<h1>{props.data.data.name}</h1>
-			<h2>Friday 18, September</h2>
-			<h3>Sunny</h3>
+			<h1>{props.data.name}</h1>
+			<h2>{props.data.time}</h2>
+			<h3>{props.data.weather}</h3>
 		</Article>
 	) 
 }

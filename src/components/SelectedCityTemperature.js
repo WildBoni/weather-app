@@ -12,10 +12,9 @@ const Panel = styled.div`
 `
 
 function SelectedCityTemperature(props){
-  console.log(props)
   return(
     <Panel>
-      <img src="https://openweathermap.org/img/wn/01d@4x.png" alt="weather condition" />
+      <img src={`${props.data.iconUrl}@4x.png`} alt={props.data.weather} />
       <span className="huge-text">22°</span>
     </Panel>
   )
