@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import styled from 'styled-components';
 import { ModalContext } from "../context/modalContext";
+import {SnackbarContext } from "../context/snackbarContext";
 
 const Button = styled.button`
 	align-items: center;
@@ -22,16 +23,22 @@ const Button = styled.button`
 	}
 `
 
-function AddCity() {
+function AddCity(props) {
 	let {handleModal} = React.useContext(ModalContext);
+	let {handleSnackbar} = React.useContext(SnackbarContext);
 	const themeContext = useContext(ThemeContext);
 	
 	return(
-		<Button styles={themeContext}
-			onClick={() => handleModal('Select a city')}
-		>
-			Aggiungi città
-		</Button>
+		<>
+			<Button styles={themeContext}
+				onClick={() => handleModal('Select a city')}
+			>
+				Aggiungi città
+			</Button>
+			<Button styles={themeContext} onClick={() => handleSnackbar('snackbar')}>
+				snackbar
+			</Button>
+		</>
 	)
 }
 

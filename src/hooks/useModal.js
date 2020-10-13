@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {loadWeather} from '../actions/weather';
 import {apiUrl} from '../shared/baseUrls';
 
 export default () => {
   let dispatch = useDispatch();
-  let [modal, setModal] = React.useState(false);
-  let [modalContent, setModalContent] = React.useState('content');
-  let [inputContent, setInputContent] = React.useState('');
+  let [modal, setModal] = useState(false);
+  let [modalContent, setModalContent] = useState('content');
+  let [inputContent, setInputContent] = useState('');
 
   let addCity = () => {
     dispatch(loadWeather(`${apiUrl}weather?q=${inputContent}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`))

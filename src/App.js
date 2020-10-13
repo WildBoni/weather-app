@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
-import { ModalProvider } from "./context/modalContext";
+import {ModalProvider} from "./context/modalContext";
+import {SnackbarProvider} from "./context/snackbarContext";
 import {useDispatch} from 'react-redux';
 import {ThemeProvider} from 'styled-components';
-import AppRouter, { history } from './routers/AppRouter';
+import AppRouter, {history} from './routers/AppRouter';
 
 import GlobalStyles from './styles/GlobalStyles';
 import theme from './styles/theme';
@@ -31,8 +32,10 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <ModalProvider>
-        <GlobalStyles/>
-        <AppRouter />
+        <SnackbarProvider>
+          <GlobalStyles/>
+          <AppRouter />
+        </SnackbarProvider>
       </ModalProvider>
     </ThemeProvider>
   );

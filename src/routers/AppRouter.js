@@ -7,7 +7,7 @@ import MobileMenuBar from '../components/MobileMenuBar';
 import MobileHomePage from '../components/MobileHomePage';
 import MobileSelectedCityContainer from '../components/MobileSelectedCityContainer';
 import FilterSelectedCities from '../components/FilterSelectedCities';
-import Modal from '../components/Modal';
+// import Modal from '../components/Modal';
 import {loadWeather} from '../actions/weather';
 // import {addCity, removeCity} from './actions/cities';
 import {apiUrl} from '../shared/baseUrls';
