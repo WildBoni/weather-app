@@ -40,7 +40,7 @@ function MobileMenuBar(props) {
           <img src="../images/Home.png" alt="Home" />
         </Item>
       </Link>
-      <Item onClick={props.setModal(true)} styles={themeContext}>
+      <Item onClick={props.showModal} styles={themeContext}>
         <img src="../images/Search.png" alt="Search" />
       </Item>
       <Item onClick={props.geolocation} styles={themeContext}>
