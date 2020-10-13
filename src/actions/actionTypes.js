@@ -11,3 +11,6 @@ export const REMOVE_CITY = 'city/remove';
 export const SELECT_CITY = 'city/select';
 
 export const SET_TEXT_FILTER = 'filter/text';
+
+export const ADD_TOAST = "toast/add";
+export const REMOVE_TOAST = "toast/remove";

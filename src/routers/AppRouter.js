@@ -52,6 +52,7 @@ const AppRouter = () => {
         <Switch>
           <Route 
             path="/" 
+            exact={true}
             render={(props) => (
               <MobileHomePage {...props}/>
             )}

@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import { addToast } from "./toasts";
 
 //LOAD WEATHER
 export const loadWeatherRequest = city => ({
@@ -15,6 +16,11 @@ export const loadWeatherFailure = err => ({
   type: actionTypes.LOAD_WEATHER_FAILURE,
   payload: err
 })
+
+// export const loadWeatherAndToast = details => dispatch => {
+//   dispatch(loadWeatherSuccess(details));
+//   dispatch(addToast({text: "aaa"}));
+// }
 
 export const loadWeather = city => dispatch => {
   dispatch(loadWeatherRequest(city));

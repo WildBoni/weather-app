@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {ModalProvider} from "./context/modalContext";
-import {SnackbarProvider} from "./context/snackbarContext";
 import {useDispatch} from 'react-redux';
 import {ThemeProvider} from 'styled-components';
 import AppRouter, {history} from './routers/AppRouter';
@@ -12,6 +11,7 @@ import {loadWeather} from './actions/weather';
 // import {addCity, removeCity} from './actions/cities';
 import {apiUrl} from './shared/baseUrls';
 import {defaultCities} from './store/defaultCities';
+import Toasts from "./components/Toasts";
 
 function App() {
   useEffect(() => {
@@ -32,10 +32,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <ModalProvider>
-        <SnackbarProvider>
-          <GlobalStyles/>
-          <AppRouter />
-        </SnackbarProvider>
+        <GlobalStyles/>
+        <AppRouter/>
+        <Toasts/>
       </ModalProvider>
     </ThemeProvider>
   );
