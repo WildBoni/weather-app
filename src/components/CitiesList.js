@@ -7,6 +7,7 @@ import selectCities from '../selectors/cities'
 
 function CitiesList(props) {
 	// TODO: is it possible to usa a hook with the selector instead of connecting to store?
+	//TODO: use something different than object.entries
 	return(
 		<>
 		{
@@ -31,7 +32,6 @@ function CitiesList(props) {
 }
 
 const mapStateToProps = (state) => {
-	console.log(state);
 	return {
 		cities: selectCities(state.weather.locations, state.filters.text)
 	}

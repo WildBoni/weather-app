@@ -7,7 +7,7 @@ import MobileMenuBar from '../components/MobileMenuBar';
 import MobileHomePage from '../components/MobileHomePage';
 import MobileSelectedCityContainer from '../components/MobileSelectedCityContainer';
 import FilterSelectedCities from '../components/FilterSelectedCities';
-
+import Modal from '../components/Modal';
 import {loadWeather} from '../actions/weather';
 // import {addCity, removeCity} from './actions/cities';
 import {apiUrl} from '../shared/baseUrls';
@@ -50,8 +50,13 @@ const AppRouter = () => {
     <Router history={history}>
       <div>
         <Switch>
-          <Route path="/" component={MobileHomePage} exact={true} />
-          <Route path="/city/:id" component={MobileSelectedCityContainer} />
+          <Route 
+            path="/" 
+            render={(props) => (
+              <MobileHomePage {...props}/>
+            )}
+          />
+          <Route path="/city/:id" component={MobileSelectedCityContainer}/>
         </Switch>
         <FilterSelectedCities show={modal} handleClose={hideModal}>
           <input type="text" placeholder="text: Rome" value={filters.text} onChange={onTextChange}/>

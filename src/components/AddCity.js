@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import styled from 'styled-components';
+import { ModalContext } from "../context/modalContext";
 
 const Button = styled.button`
 	align-items: center;
@@ -22,10 +23,13 @@ const Button = styled.button`
 `
 
 function AddCity() {
+	let {handleModal} = React.useContext(ModalContext);
 	const themeContext = useContext(ThemeContext);
-
+	
 	return(
-		<Button styles={themeContext}>
+		<Button styles={themeContext}
+			onClick={() => handleModal('Select a city')}
+		>
 			Aggiungi città
 		</Button>
 	)

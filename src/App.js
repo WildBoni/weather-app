@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import { ModalProvider } from "./context/modalContext";
 import {useDispatch} from 'react-redux';
 import {ThemeProvider} from 'styled-components';
 import AppRouter, { history } from './routers/AppRouter';
@@ -29,8 +30,10 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <ModalProvider>
         <GlobalStyles/>
         <AppRouter />
+      </ModalProvider>
     </ThemeProvider>
   );
 }

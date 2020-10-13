@@ -34,6 +34,7 @@ function MobileSelectedCityContainer(props) {
   return(
     <Container styles={themeContext}>
       {
+        //TODO: use something different than object.entries
         Object.entries(forecast).map(([key,val]) => {
           let current = val.current;
           let dailyForecast = val.daily;
