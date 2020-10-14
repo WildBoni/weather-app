@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "express": "^4.17.1",
     "immer": "^7.0.9",
     "moment": "^2.29.1",
     "react": "^16.13.1",
@@ -19,8 +20,12 @@
     "react-slick": "^0.27.11",
     "styled-components": "^5.2.0"
   },
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
+    "react-start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

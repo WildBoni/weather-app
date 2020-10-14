@@ -4,6 +4,7 @@ import{useContext} from 'react';
 import{ThemeContext} from 'styled-components';
 import moment from 'moment';
 import {weatherIconUrl} from '../shared/baseUrls';
+import {weatherBackgroundColor} from '../shared/weatherBackgroundColor';
 
 const Card = styled.div`
   background: ${props => props.styles[props.cardColor]};
@@ -26,44 +27,15 @@ const Temperature = styled.div`
 
 function SelectedCityWeekForecastCard(props) {
   const themeContext = useContext(ThemeContext);
-
-  let cardColor = '';
-	switch (props.weather) {
-		case '01d':
-		case '01n':
-			cardColor = 'sunny';
-			break;
-		case '02d':
-		case '02n':
-		case '10d':
-		case '10n':
-			cardColor = 'mixed';
-			break;
-		case '03d':
-		case '03n':
-		case '04d':
-		case '04n':
-		case '09d':
-		case '09n':
-		case '11d':
-		case '11n':
-		case '13d':
-		case '13n':
-		case '50d':
-		case '50n':
-			cardColor = 'cloudy';
-			break;
-		default:
-			cardColor = 'sunny';
-			break;
-  }
   
   let dailyForecast = props.dailyForecast;
   let day = moment.unix(dailyForecast.dt).format('dddd');
   let temperature = Math.round(dailyForecast.temp.day);
   let iconUrl = `${weatherIconUrl}${dailyForecast.weather[0].icon}`;
+	let cardColor = weatherBackgroundColor(dailyForecast.weather[0].icon);
+	
   return(
-    <Card styles={themeContext}>
+    <Card styles={themeContext} cardColor={cardColor}>
       <Day>{day}</Day>
       <Temperature>{temperature}°</Temperature>
       <img src={`${iconUrl}@2x.png`} alt={dailyForecast.weather[0].description} />

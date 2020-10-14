@@ -20,6 +20,9 @@ const Button = styled.button`
 	&:focus {
 		outline: 0;
 	}
+	@media(min-width:996px) {
+		margin: 0 auto;
+	}	
 `
 
 function AddCity(props) {
@@ -29,7 +32,7 @@ function AddCity(props) {
 	return(
 		<>
 			<Button styles={themeContext}
-				onClick={() => handleModal('Select a city')}
+				onClick={() => handleModal('Type a city')}
 			>
 				Aggiungi città
 			</Button>

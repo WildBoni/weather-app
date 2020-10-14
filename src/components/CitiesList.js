@@ -1,30 +1,37 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import moment from 'moment';
 import {weatherIconUrl} from '../shared/baseUrls';
 import CitiesListItem from './CitiesListItem';
-import selectCities from '../selectors/cities'
+import {selectCityByName} from '../selectors/cities'
+import {selectCity} from '../actions/cities';
 
 function CitiesList(props) {
 	// TODO: is it possible to usa a hook with the selector instead of connecting to store?
 	//TODO: use something different than object.entries
+	const dispatch = useDispatch();
+	
+	let onSelectCity = (id) => {
+		dispatch(selectCity(id))
+	}
+
 	return(
 		<>
 		{
-			Object.entries(props.cities).map(([key, val]) => {
+			props.cities.map(([key, val]) => {
 				let details = {
-					id: val[1].id,
-					lat: val[1].coord.lat,
-					lon: val[1].coord.lon,
-					name: val[1].name, 
-					weather: val[1].weather[0].main, 
-					icon: val[1].weather[0].icon,
-					iconUrl: `${weatherIconUrl}${val[1].weather[0].icon}`, 
-					temperature: Math.round(val[1].main.temp), 
-					time: moment.unix(val[1].dt).format('dddd D, MMMM'),
-					hour: moment.unix(val[1].dt).format('kk:mm a')
+					id: val.id,
+					lat: val.coord.lat,
+					lon: val.coord.lon,
+					name: val.name, 
+					weather: val.weather[0].main, 
+					icon: val.weather[0].icon,
+					iconUrl: `${weatherIconUrl}${val.weather[0].icon}`, 
+					temperature: Math.round(val.main.temp), 
+					time: moment.unix(val.dt).format('dddd D, MMMM'),
+					hour: moment.unix(val.dt).format('kk:mm a')
 				};
-				return	<CitiesListItem key={key} details={details}/>
+				return	<CitiesListItem key={key} onSelectCity={onSelectCity} details={details}/>
 			})
 		}
 		</>
@@ -33,7 +40,7 @@ function CitiesList(props) {
 
 const mapStateToProps = (state) => {
 	return {
-		cities: selectCities(state.weather.locations, state.filters.text)
+		cities: selectCityByName(state.weather.locations, state.filters.text)
 	}
 }
 

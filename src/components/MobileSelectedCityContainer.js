@@ -33,23 +33,11 @@ function MobileSelectedCityContainer(props) {
 
   return(
     <Container styles={themeContext}>
-      {
-        //TODO: use something different than object.entries
-        Object.entries(forecast).map(([key,val]) => {
-          let current = val.current;
-          let dailyForecast = val.daily;
-          let hourlyForecast = val.hourly;
-          return (
-            <SelectedCity 
-              key={key} current={current} 
-              dailyForecast={dailyForecast}
-              hourlyForecast={hourlyForecast}
+      <SelectedCity 
+              dailyForecast={forecast.result.daily}
+              hourlyForecast={forecast.result.hourly}
               details={details}
             />
-          )
-        })
-      }
-      
     </Container>
   )
 }

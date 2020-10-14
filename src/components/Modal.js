@@ -2,9 +2,58 @@ import React from 'react';
 import styled from 'styled-components';
 import { ModalContext } from "../context/modalContext";
 
-
+const ModalBackground = styled.div`
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  padding: 100px 0 0 0;
+  text-align: center;
+`
 const Content = styled.div`
-  margin: 0 auto
+  position: relative;
+  background-color: #ffffff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+`
+const Text = styled.div`
+  font-size: 30px;
+  padding: 20px 0;
+`
+const Input = styled.input`
+  padding: 10px 10px;
+  font-size: 18px;
+`
+const AddButton = styled.button`
+  padding: 12px 30px;
+  font-size: 18px;
+  background-color: #15908c;
+  border: none;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: #065856;
+  }
+`
+const CloseButton = styled.button`
+  right: 0;
+  top: -45px;
+  padding: 12px 30px;
+  font-size: 18px;
+  background-color: #ec2121;
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  &:hover {
+    background-color: #b31010;
+  }
 `
 
 function Modal() {
@@ -12,12 +61,14 @@ function Modal() {
   let {modalContent, handleModal, modal, addCity, handleChange} = React.useContext(ModalContext);
   if(modal) {
     return(
-      <Content>
-        {modalContent}
-        <input type="text" onChange={(e) => handleChange(e)}/>
-        <button onClick={() => addCity()}>Add</button>
-        <button onClick={() => handleModal()}>Close</button>
-      </Content>
+      <ModalBackground>
+        <Content>
+          <CloseButton onClick={() => handleModal()}>Close</CloseButton>
+          <Text>{modalContent}</Text>
+          <Input type="text" onChange={(e) => handleChange(e)}/>
+          <AddButton onClick={() => addCity()}>Add</AddButton>
+        </Content>
+      </ModalBackground>
     )
     } else return null;
 }

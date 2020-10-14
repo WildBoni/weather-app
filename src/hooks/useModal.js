@@ -21,7 +21,6 @@ export default () => {
   }
 
   let handleChange = (e) => {
-    console.log(e);
     setInputContent(e.target.value);
   }
   

@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "0ac678f3-7aff-4c6f-bf62-66cfbacd41ed",
+		"name": "openweathermap",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "byCityName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?q={{CITY}}&appid={{API}}&units={{UNIT}}",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{CITY}}"
+						},
+						{
+							"key": "appid",
+							"value": "{{API}}"
+						},
+						{
+							"key": "units",
+							"value": "{{UNIT}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5day / hour forecast by CIty",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/forecast?q={{CITY}}&appid={{API}}&units={{UNIT}}",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{CITY}}"
+						},
+						{
+							"key": "appid",
+							"value": "{{API}}"
+						},
+						{
+							"key": "units",
+							"value": "{{UNIT}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "byCoordinates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/onecall?lat={{LAT}}&lon={{LON}}&appid={{API}}&units={{UNIT}}",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"onecall"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "{{LAT}}"
+						},
+						{
+							"key": "lon",
+							"value": "{{LON}}"
+						},
+						{
+							"key": "appid",
+							"value": "{{API}}"
+						},
+						{
+							"key": "units",
+							"value": "{{UNIT}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b59a31ce-4463-48b5-bb46-dac6ea59843d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b70e151d-e0c0-4ae3-a86e-923eddb5bd43",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "740d6f6e-b1f0-45a7-b5d9-adcdc0c627bc",
+			"key": "CITY",
+			"value": "Milano"
+		},
+		{
+			"id": "54a9f2f9-2f4c-4778-9b2d-c70668128055",
+			"key": "API",
+			"value": "f485a43ae9c9eb0939242786eb5f9075"
+		},
+		{
+			"id": "a69dc7b8-da8d-4b68-9ac5-faf64e0c8476",
+			"key": "LON",
+			"value": "9.19"
+		},
+		{
+			"id": "cc9295f8-aba1-4336-89f3-f59b97be54fa",
+			"key": "LAT",
+			"value": "45.46"
+		},
+		{
+			"id": "006d7e30-1c59-4b1e-9736-e70e37472767",
+			"key": "UNIT",
+			"value": "metric"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

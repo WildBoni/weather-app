@@ -56,7 +56,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .city-box {
-    border-radius: 25px;
+    border-radius: ${props => props.theme.borderRadius};
     box-shadow: 5px 10px 20px 0 rgba(0,0,0,0.17);
   }
 

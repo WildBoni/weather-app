@@ -3,6 +3,7 @@ import {useContext} from 'react';
 import {ThemeContext} from 'styled-components';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import {weatherBackgroundColor} from '../shared/weatherBackgroundColor';
 
 const Article = styled.article`
 	align-items: center;
@@ -12,7 +13,10 @@ const Article = styled.article`
 	flex-wrap: wrap;
 	justify-content: space-between;
 	margin: 20px;	
-	padding: 25px;	
+	padding: 25px;
+	@media(min-width:996px) {
+		margin-right: 0;
+	}	
 `
 
 const Details = styled.div`
@@ -35,39 +39,9 @@ const Temperature = styled.div`
 function CitiesListItem(props) {
 	const themeContext = useContext(ThemeContext);
 	let details = props.details;
-	let cardColor = '';
-	switch (details.icon) {
-		case '01d':
-		case '01n':
-			cardColor = 'sunny';
-			break;
-		case '02d':
-		case '02n':
-		case '10d':
-		case '10n':
-			cardColor = 'mixed';
-			break;
-		case '03d':
-		case '03n':
-		case '04d':
-		case '04n':
-		case '09d':
-		case '09n':
-		case '11d':
-		case '11n':
-		case '13d':
-		case '13n':
-		case '50d':
-		case '50n':
-			cardColor = 'cloudy';
-			break;
-		default:
-			cardColor = 'sunny';
-			break;
-	}
-
+	let cardColor = weatherBackgroundColor(details.icon);
 	return(
-		<Link to={{
+		<Link onClick={() => props.onSelectCity(details.id)} to={{
 			pathname: `/city/${details.id}`,
 			state: { 
 				details

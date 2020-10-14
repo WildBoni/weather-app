@@ -2,7 +2,15 @@ import * as actionTypes from '../actions/actionTypes';
 import produce from 'immer';
 
 const initialState = {
-  details: {},
+  details: {
+    result: {
+      lat: 0,
+      lon: 0,
+      current: [],
+      hourly: [],
+      daily: []
+    }
+  },
   isLoading: false,
   error: null
 }

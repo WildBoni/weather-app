@@ -27,6 +27,10 @@ const Item = styled.button.attrs(props => ({
   text-align: center;
   &:focus {
     outline: 0;
+    border-bottom: 2px solid ${props => props.styles.blue};
+  }
+  &:hover {
+    border-bottom: 2px solid ${props => props.styles.blue};
   }
 `
 
@@ -40,7 +44,7 @@ function MobileMenuBar(props) {
           <img src="../images/Home.png" alt="Home" />
         </Item>
       </Link>
-      <Item onClick={props.showModal} styles={themeContext}>
+      <Item onClick={props.showSearchbar} styles={themeContext}>
         <img src="../images/Search.png" alt="Search" />
       </Item>
       <Item onClick={props.geolocation} styles={themeContext}>

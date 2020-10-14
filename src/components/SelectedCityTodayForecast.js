@@ -10,18 +10,29 @@ const Forecast = styled.div`
   position: relative;
   border: 15px solid white;
   border-radius: 50%;
+  @media(min-width:996px) {
+    border: 5px solid white;
+  }
 `
 const Time = styled.div`
   position: absolute;
   top: -40px;
   font-size: 12px;
   font-weight: 300;
+  @media(min-width:996px) {
+    top: -8px;
+    left: 15px;
+  }
 `
 const Temperature = styled.div`
   position: absolute;
   top: 25px;
   font-size: 20px;
   font-weight: 300;
+  @media(min-width:996px) {
+    top: -15px;
+    left: -45px;
+  }
 `
 const Line = styled.div`
   flex-grow: 1;
@@ -29,6 +40,10 @@ const Line = styled.div`
   max-width:200px;
   min-width:100px;
   background-color: white;
+  @media(min-width:996px) {
+    min-width: 2px;
+    height: 20px;
+  }
 `
 
 function SelectedCityTodayForecast(props) {

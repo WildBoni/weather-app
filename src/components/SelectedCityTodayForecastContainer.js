@@ -13,6 +13,11 @@ const ForecastContainer = styled.div`
   align-items: center;
   justify-content: start;
   position: relative;
+  @media(min-width:996px) {
+
+    flex-direction: column;
+    padding: 20px;
+	}	
 `
 
 function SelectedCityTodayForecastContainer(props) {

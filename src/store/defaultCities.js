@@ -2,7 +2,7 @@
 //TODO: Use a proper id generator and decide what to do with these data in production
 
 export const defaultCities = {
-  selectedCity: 5308655,
+  selectedCity: 2643743,
   cities: {
     5308655:  {
       name: 'Phoenix',
@@ -12,9 +12,9 @@ export const defaultCities = {
       name: 'London',
       id: 2643743  
     },
-    4219762: {
-      name: 'Roma',
-      id: 4219762
+    3173435: {
+      name: 'Milano',
+      id: 3173435
     }
   }
 }
