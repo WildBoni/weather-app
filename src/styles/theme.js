@@ -1,3 +1,4 @@
+// TODO: cleanup styles in components and add more variables here
 const theme = {
   lightestGray: '#F1F1F1',
   blue: '#01175F',

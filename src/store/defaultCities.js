@@ -1,6 +1,4 @@
 //Setting up 3 default cities for displaying purposes
-//TODO: Use a proper id generator and decide what to do with these data in production
-
 export const defaultCities = {
   selectedCity: 2643743,
   cities: {

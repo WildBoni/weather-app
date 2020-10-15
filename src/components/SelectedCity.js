@@ -1,12 +1,11 @@
 import React from 'react';
-import { useContext } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import SelectedCityDetails from './SelectedCityDetails';
 import SelectedCityTemperature from './SelectedCityTemperature';
 import SelectedCityTodayForecastContainer from './SelectedCityTodayForecastContainer';
 import SelectedCityWeekForecastContainer from './SelectedCityWeekForecastContainer';
-import { ModalContext } from "../context/modalContext";
+import {ModalContext} from "../context/modalContext";
 
 const BackButton = styled.button`
   background: none;

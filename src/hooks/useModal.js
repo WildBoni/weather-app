@@ -1,3 +1,4 @@
+// modal window for adding a new city
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {loadWeather} from '../actions/weather';
@@ -22,7 +23,7 @@ export default () => {
   }
 
   let handleKeyPress = e => {
-    if (e.key == 'Enter') {
+    if (e.key === 'Enter') {
       addCity();
     }
   };

@@ -1,6 +1,6 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import styled, {ThemeContext} from 'styled-components';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import SelectedCityTodayForecastContainer from './SelectedCityTodayForecastContainer';
 import SelectedCityTabs from './SelectedCityTabs';
 
@@ -29,7 +29,6 @@ const StyledTabs = styled.div`
 
 function DesktopBottomRow(props) {
   const themeContext = useContext(ThemeContext);
-  const dispatch = useDispatch();
   const forecast = useSelector(state => state.forecast.details.result);
   return (
     <Container>

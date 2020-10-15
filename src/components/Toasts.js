@@ -1,20 +1,28 @@
 import React from "react";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
 import Toast from "./Toast";
-import { removeToast } from "../actions/toasts";
+import {removeToast} from "../actions/toasts";
+import styled from 'styled-components';
+
+let Wrapper = styled.ul`
+  list-style-type: none;
+  position: fixed;
+  top: 0;
+  right: 10px;
+`
 
 let Toasts = ({actions,toasts}) => {
   const {removeToast} = actions;
   return(
-    <ul>
+    <Wrapper>
       {toasts.map(toast => {
         const{id} = toast;
         return(
           <Toast {...toast} key={id} onDismissClick={() => removeToast(id)}/>
         )
       })}
-    </ul>
+    </Wrapper>
   )
 }
 

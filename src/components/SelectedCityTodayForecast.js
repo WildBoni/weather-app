@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import ScrollContainer from 'react-indiana-drag-scroll';
 import moment from 'moment';
 
 const Forecast = styled.div`

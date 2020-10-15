@@ -23,10 +23,6 @@ export default produce((draft, action) => {
       draft.error = action.payload;
       break;
     case actionTypes.REMOVE_WEATHER_LOCATION:
-      //TODO: implementing a conditional logic to check if it'a selected city. If true, it may be automatically replaced with another one.
-      // if (draft.selectedCity === action.payload) {
-      //   delete draft.selectedCity;
-      // }
       delete draft.locations[action.payload];
       break;
     default:

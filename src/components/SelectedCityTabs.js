@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import React, {useState} from 'react';
+import {useSelector} from 'react-redux';
 import styled from "styled-components";
 import SelectedCityWeekForecastContainer from './SelectedCityWeekForecastContainer';
 import SelectedCityTodayDetails from './SelectedCityTodayDetails';

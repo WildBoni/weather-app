@@ -2,7 +2,7 @@ import React from 'react';
 import {useContext} from 'react';
 import {ThemeContext} from 'styled-components';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {weatherBackgroundColor} from '../shared/weatherBackgroundColor';
 
 const Article = styled.article`
@@ -18,7 +18,6 @@ const Article = styled.article`
 		margin-right: 0;
 	}	
 `
-
 const Container = styled.div`
 	position: relative;
 `
@@ -40,8 +39,8 @@ const Button = styled.button`
 			right: 0;
 			top: 0;
 			width: 30px;
+			border-radius:0;
 		}
-
 		&:hover {
 			background-color: #611010;
 		}
@@ -54,13 +53,11 @@ const Details = styled.div`
 	flex-basis: 0;
 	flex-grow: 1;
 `
-
 const Weather = styled.div`
 	flex-basis: 0;
 	flex-grow: 1;
 	text-align: center;
 `
-
 const Temperature = styled.div`
 	flex-basis: 0;
 	flex-grow: 1;

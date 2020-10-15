@@ -1,3 +1,4 @@
+// TODO: cleanup styles in components and add more default rules here
 import {createGlobalStyle} from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
@@ -43,6 +44,12 @@ const GlobalStyles = createGlobalStyle`
     line-height: 18px;
     margin: 0;
     padding: 0;
+  }
+
+  button {
+    &:focus {
+      outline: 0;
+    }
   }
 
   .small-text {

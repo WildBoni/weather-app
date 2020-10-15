@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import styled, {ThemeContext} from 'styled-components';
-import { ModalContext } from "../context/modalContext";
+import {ModalContext} from "../context/modalContext";
 
 const Button = styled.button`
 	align-items: center;

@@ -1,16 +1,12 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import styled from 'styled-components';
 import CitiesContainer from './CitiesContainer';
 import SearchBar from './SearchBar';
 import AddLocalization from './AddLocalization';
 import {apiUrl} from '../shared/baseUrls';
 import {loadWeather} from '../actions/weather';
 import {setTextFilter} from '../actions/filters';
-
-// const Section = styled.section`
-// 	width: 33%;
-// `
+import {addToast} from '../actions/toasts';
 
 function DesktopFavCitiesColumn() {
 	let dispatch = useDispatch()
@@ -24,7 +20,8 @@ function DesktopFavCitiesColumn() {
 		e.preventDefault();
 		if('geolocation' in navigator) {
 			navigator.geolocation.getCurrentPosition((position) => {
-				dispatch(loadWeather(`${apiUrl}weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`));
+				dispatch(loadWeather(`${apiUrl}weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`))
+				.then(dispatch(addToast({text: 'Your location has been added!'})));
 			});
 			//TODO: create a snackbar to show related messages
 		} else {

@@ -2,14 +2,10 @@ import React, {useContext, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components';
 import{ThemeContext} from 'styled-components';
-import moment from 'moment';
-import {weatherIconUrl} from '../shared/baseUrls';
-
 import SelectedCity from './SelectedCity';
 import {apiUrl} from '../shared/baseUrls';
-
-import {loadWeather} from '../actions/weather';
 import {loadForecast} from '../actions/forecast';
+import {addToast} from '../actions/toasts';
 
 const Container = styled.div`
   background: ${props => props.styles.blueGradient};
@@ -30,7 +26,7 @@ function MobileSelectedCityContainer(props) {
 
   let fetchSelectedCityForecast = (lat, lon) => dispatch(
     loadForecast(`${apiUrl}onecall?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric&exclude=minutely,alerts`)
-  )
+  ).then(dispatch(addToast({text: 'Forecast Loaded!'})));
 
   return(
     <Container styles={themeContext}>

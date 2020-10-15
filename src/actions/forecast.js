@@ -18,22 +18,30 @@ export const loadForecastFailure = err => ({
 })
 
 export const loadForecast = url => dispatch => {
-  dispatch(loadForecastRequest(url));
-  fetch(url)
-    .then(response => {
-      if(response.ok) {
-        return response;
-      } else {
-        let error = new Error(`Error ${response.cod}: ${response.message}`);
-        error.response = response;
-        throw error;
-      }
-    },
-    error => {
-      let errorMessage = new Error(error.message);
-      throw errorMessage;
-    })
-    .then(response => response.json())
-    .then(details => dispatch(loadForecastSuccess(details)))
-    .catch(err => dispatch(loadForecastFailure(err)))
+  return new Promise((resolve, reject) => {
+    dispatch(loadForecastRequest(url));
+    fetch(url)
+      .then(response => {
+        if(response.ok) {
+          return response;
+        } else {
+          let error = new Error(`Error ${response.cod}: ${response.message}`);
+          error.response = response;
+          throw error;
+        }
+      },
+      error => {
+        let errorMessage = new Error(error.message);
+        throw errorMessage;
+      })
+      .then(response => response.json())
+      .then(details => {
+        dispatch(loadForecastSuccess(details));
+        resolve(details);
+      })
+      .catch(err => {
+        dispatch(loadForecastFailure(err));
+        reject(err);
+      })
+  })
 }

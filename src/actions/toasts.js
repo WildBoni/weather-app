@@ -6,10 +6,16 @@ const defaultOptions = {
   color: "#6796e6"
 };
 
-export const addToast = (options={}) => ({
-  payload: createToast(options),
-  type: actionTypes.ADD_TOAST
-})
+export const addToast = (options={}) => dispatch => {
+  dispatch(createToast(options));
+  let toastId = id-1;
+  setTimeout(
+    () => {
+      dispatch(removeToast(toastId))
+    },
+    3000
+  )
+}
 
 export const removeToast = (id) => ({
   payload: id,
@@ -17,7 +23,10 @@ export const removeToast = (id) => ({
 })
 
 export const createToast = options => ({
-  ...defaultOptions,
-  ...options,
-  id: id++
+  type: actionTypes.ADD_TOAST,
+  payload: {
+    ...defaultOptions,
+    ...options,
+    id: id++
+  }
 })

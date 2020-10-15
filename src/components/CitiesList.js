@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect, useDispatch } from 'react-redux';
+import {connect, useDispatch} from 'react-redux';
 import styled from 'styled-components';
 import moment from 'moment';
 import {weatherIconUrl} from '../shared/baseUrls';
@@ -7,6 +7,7 @@ import CitiesListItem from './CitiesListItem';
 import {selectCityByName} from '../selectors/cities'
 import {selectCity} from '../actions/cities';
 import {startRemoveWeatherLocation} from '../actions/weather';
+import {addToast} from '../actions/toasts';
 
 let Container = styled.div`
 	@media(min-width:996px) {
@@ -40,7 +41,8 @@ function CitiesList(props) {
 	let onRemoveCity = (id) => {
 		let filtered = props.cities.filter((city) => city[0] !== id.toString());
 		if(filtered.length > 0) {
-			dispatch(startRemoveWeatherLocation(id));
+			dispatch(startRemoveWeatherLocation(id))
+				.then(dispatch(addToast({text: 'City removed!'})));
 			dispatch(selectCity(filtered[0][1].id));
 		}
 	}

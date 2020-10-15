@@ -1,3 +1,4 @@
+// the function receives a weather icon and selects a proper background color
 let weatherBackgroundColor = (icon) => {
   let cardColor = '';
 

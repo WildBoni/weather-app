@@ -18,7 +18,7 @@ const Content = styled.div`
   position: relative;
   background-color: #ffffff;
   margin: 15% auto;
-  padding: 20px;
+  padding: 20px 20px 40px 20px;
   border: 1px solid #888;
   width: 80%;
 `
