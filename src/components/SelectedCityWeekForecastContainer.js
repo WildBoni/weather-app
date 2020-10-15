@@ -4,6 +4,7 @@ import SelectedCityWeekForecastCard from './SelectedCityWeekForecastCard';
 import ScrollContainer from 'react-indiana-drag-scroll';
 
 const CardContainer = styled.div`
+  cursor: pointer;
   display: flex;
   margin: 20px 0 0 20px;
   @media(min-width:996px) {

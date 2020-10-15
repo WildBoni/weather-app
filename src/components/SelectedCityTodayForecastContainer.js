@@ -10,6 +10,7 @@ const Container = styled(ScrollContainer)`
 `
 const TodayForecast = styled.div`
   color: white;
+  cursor: pointer;
   margin: 45px 10px;
   @media(min-width:996px) {
     margin: 30px 10px;

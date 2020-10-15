@@ -42,3 +42,13 @@ export const loadWeather = city => dispatch => {
     .then(details => dispatch(loadWeatherSuccess(details)))
     .catch(err => dispatch(loadWeatherFailure(err)))
 }
+
+//REMOVE WEATHER LOCATION
+export const startRemoveWeatherLocation = id => dispatch => {
+  dispatch(removeWeatherLocation(id));
+}
+
+let removeWeatherLocation = (id) => ({
+  type: actionTypes.REMOVE_WEATHER_LOCATION,
+  payload: id
+})

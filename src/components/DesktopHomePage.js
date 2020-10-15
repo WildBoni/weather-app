@@ -10,7 +10,7 @@ import {selectCityById} from '../selectors/cities'
 
 const Container = styled.section`
 	display: flex;
-	padding: 50px;
+	padding: 30px;
 `
 const Article = styled.article`
 	position: relative;
@@ -41,8 +41,8 @@ function DesktopHomePage(props) {
 					hour: moment.unix(val.dt).format('kk:mm a')
 				};
 				return	(
-          <Article>
-             <DesktopMainDisplay key={key} details={details}/>
+          <Article key={details.id}>
+             <DesktopMainDisplay details={details}/>
           </Article>
         )
 			})
