@@ -10,7 +10,8 @@ export default () => {
   let [inputContent, setInputContent] = useState('');
 
   let addCity = () => {
-    dispatch(loadWeather(`${apiUrl}weather?q=${inputContent}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`))
+    dispatch(loadWeather(`${apiUrl}weather?q=${inputContent}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`));
+    handleModal();
   }
 
   let handleModal = (content=false) => {
@@ -20,9 +21,15 @@ export default () => {
     }
   }
 
+  let handleKeyPress = e => {
+    if (e.key == 'Enter') {
+      addCity();
+    }
+  };
+  
   let handleChange = (e) => {
     setInputContent(e.target.value);
   }
   
-  return {modal, handleModal, modalContent, addCity, handleChange};
+  return {modal, handleModal, modalContent, addCity, handleChange, handleKeyPress};
 }

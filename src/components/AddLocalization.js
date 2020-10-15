@@ -22,7 +22,8 @@ const Button = styled.button`
 	padding: 28px;
 	img {
 		display: block;
-		margin: 0 auto
+		margin: 0 auto;
+		padding-bottom: 10px;
 	}
 	&:focus {
 		outline: none;

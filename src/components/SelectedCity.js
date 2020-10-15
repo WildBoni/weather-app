@@ -1,10 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import SelectedCityDetails from './SelectedCityDetails';
 import SelectedCityTemperature from './SelectedCityTemperature';
 import SelectedCityTodayForecastContainer from './SelectedCityTodayForecastContainer';
 import SelectedCityWeekForecastContainer from './SelectedCityWeekForecastContainer';
+import { ModalContext } from "../context/modalContext";
 
 const BackButton = styled.button`
   background: none;
@@ -30,6 +32,8 @@ const AddButton = styled.button`
 `
 
 function SelectedCity(props) {
+  let {handleModal} = React.useContext(ModalContext);
+  
   return(
     <>
       <Link to="/">
@@ -37,7 +41,7 @@ function SelectedCity(props) {
           <img src="../images/ArrowLeft.png" alt="Left arrow"/>
         </BackButton>
       </Link>
-      <AddButton>
+      <AddButton onClick={() => handleModal('Type a city')}>
         <img src="../images/PlusWhite.png" alt="Plus icon"/>
       </AddButton>
       <SelectedCityDetails data={props.details}/>

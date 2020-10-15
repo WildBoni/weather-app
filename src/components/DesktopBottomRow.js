@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import styled from 'styled-components';
+import styled, {ThemeContext} from 'styled-components';
 import {useDispatch, useSelector} from 'react-redux';
 import SelectedCityTodayForecastContainer from './SelectedCityTodayForecastContainer';
 import SelectedCityTabs from './SelectedCityTabs';
@@ -8,25 +8,36 @@ const Container = styled.div`
   display: flex;
 `
 const StyledContainer = styled.div`
+  margin: 45px 10px 0 0;
   width: 25%;
-  @media(min-width:996px) {
-    background: radial-gradient(circle, #5374E7 0%, #77B9F5 100%);
-    box-shadow: 5px 10px 20px 0 rgba(0,0,0,0.17);
-    border-radius: 25px;
-    height: 340px;
-	}	
+`
+const Title = styled.h2`
+  color: ${props => props.styles.blue};
+	font-size: 28px;
+  padding: 18px 20px 16px 20px;
+`
+const ForecastContainer = styled.div`
+  background: radial-gradient(circle, #5374E7 0%, #77B9F5 100%);
+  box-shadow: 5px 10px 20px 0 rgba(0,0,0,0.17);
+  border-radius: 25px;
+  height: 314px;
 `
 const StyledTabs = styled.div`
-width: 75%;
+  margin: 25px 0 0 10px;
+  width: 75%;
 `
 
 function DesktopBottomRow(props) {
+  const themeContext = useContext(ThemeContext);
   const dispatch = useDispatch();
   const forecast = useSelector(state => state.forecast.details.result);
   return (
     <Container>
       <StyledContainer>
-        <SelectedCityTodayForecastContainer hourlyForecast={forecast.hourly}/>
+        <Title styles={themeContext}>Today</Title>
+        <ForecastContainer>
+          <SelectedCityTodayForecastContainer hourlyForecast={forecast.hourly}/>
+        </ForecastContainer>
       </StyledContainer>
       <StyledTabs>
         <SelectedCityTabs current={forecast.current} data={props.data}/>

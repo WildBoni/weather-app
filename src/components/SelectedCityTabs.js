@@ -4,11 +4,12 @@ import styled from "styled-components";
 import SelectedCityWeekForecastContainer from './SelectedCityWeekForecastContainer';
 import SelectedCityTodayDetails from './SelectedCityTodayDetails';
 
+const Wrapper = styled.div`
+`
 const Header = styled.div`
   overflow: hidden;
-  background: #fff;
-  font-family: Open Sans;
-  height: 3em;
+  font-size: 28px;
+  padding: 20px 30px 0 30px;
 `;
 const Tab = styled.button`
   border: none;
@@ -18,17 +19,21 @@ const Tab = styled.button`
   position: relative;
   margin-right: 0.1em;
   font-size: 1em;
-  border: ${props => (props.active ? "1px solid #ccc" : "")};
-  border-bottom: ${props => (props.active ? "none" : "")};
-  background-color: ${props => (props.active ? "white" : "lightgray")};
-  height: ${props => (props.active ? "3em" : "2.6em; top:.4em")};
-  transition: background-color 0.5s ease-in-out;
+  border: none;
+  color: ${props => (props.active ? "white" : "#01175F")};
+  background-color: ${props => (props.active ? "#5a82ea" : "white")};
+  padding: 20px;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 25px 25px 0 0;
   :hover {
-    background-color: white;
+    background-color: #5a82ea;
   }
 `;
 const Content = styled.div`
-  ${props => (props.active ? "" : "display:none")}
+  ${props => (props.active ? "" : "display:none")};
+  background-color: #5a82ea;
+  border-radius: 25px;
+  padding: 20px;
 `;
 
 const SelectedCityTabs = (props) => {
@@ -41,7 +46,7 @@ const SelectedCityTabs = (props) => {
     }
   }
   return(
-    <>
+    <Wrapper>
       <Header>
         <Tab onClick={handleClick} active={active === 0} id={0}>
           This week
@@ -59,7 +64,7 @@ const SelectedCityTabs = (props) => {
           <SelectedCityTodayDetails current={props.current} data={props.data}/>
         </Content>
       </>
-    </>
+    </Wrapper>
   )
 }
 

@@ -58,14 +58,14 @@ const CloseButton = styled.button`
 
 function Modal() {
   
-  let {modalContent, handleModal, modal, addCity, handleChange} = React.useContext(ModalContext);
+  let {modalContent, handleModal, modal, addCity, handleChange, handleKeyPress} = React.useContext(ModalContext);
   if(modal) {
     return(
       <ModalBackground>
         <Content>
           <CloseButton onClick={() => handleModal()}>Close</CloseButton>
           <Text>{modalContent}</Text>
-          <Input type="text" onChange={(e) => handleChange(e)}/>
+          <Input type="text" onChange={(e) => handleChange(e)}  onKeyPress={(e) => handleKeyPress(e)}/>
           <AddButton onClick={() => addCity()}>Add</AddButton>
         </Content>
       </ModalBackground>

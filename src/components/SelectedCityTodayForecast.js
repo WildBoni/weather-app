@@ -42,7 +42,7 @@ const Line = styled.div`
   background-color: white;
   @media(min-width:996px) {
     min-width: 2px;
-    height: 20px;
+    height: 50px;
   }
 `
 

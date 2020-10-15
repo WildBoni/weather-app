@@ -1,7 +1,5 @@
-import React from 'react';
-import { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
-import styled from 'styled-components';
+import React, {useContext} from 'react';
+import styled, {ThemeContext} from 'styled-components';
 import { ModalContext } from "../context/modalContext";
 
 const Button = styled.button`
@@ -26,7 +24,7 @@ const Button = styled.button`
 `
 
 function AddCity(props) {
-	let {handleModal} = React.useContext(ModalContext);
+	let {handleModal} = useContext(ModalContext);
 	const themeContext = useContext(ThemeContext);
 	
 	return(

@@ -21,7 +21,10 @@ const Article = styled.article`
 		text-align: center;
 	}
 	@media (min-width: 996px) {
-		background: linear-gradient(90.0deg,#77B9F5 0%,#5374E7 100%);
+		background-image: url("../images/background.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: left bottom;
 		border-radius: ${props => props.styles.borderRadius};
 		box-shadow: 5px 10px 20px 0 rgba(0,0,0,0.17);
 		color: ${props => props.styles.blue};

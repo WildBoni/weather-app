@@ -5,7 +5,10 @@ import ScrollContainer from 'react-indiana-drag-scroll';
 
 const CardContainer = styled.div`
   display: flex;
-  margin: 20px 0 20px 20px;
+  margin: 20px 0 0 20px;
+  @media(min-width:996px) {
+    margin: 0;
+  }
 `
 
 function SelectedCityWeekForecastContainer(props) {

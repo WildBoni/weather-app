@@ -12,9 +12,9 @@ export const defaultCities = {
       name: 'London',
       id: 2643743  
     },
-    3173435: {
-      name: 'Milano',
-      id: 3173435
+    292223: {
+      name: 'Dubai',
+      id: 292223
     }
   }
 }

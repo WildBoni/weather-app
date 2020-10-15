@@ -5,9 +5,9 @@ import Modal from "../components/Modal";
 let ModalContext  = createContext();
 
 let ModalProvider = ({children}) => {
-  let {modal, handleModal, modalContent, addCity, handleChange} = useModal();
+  let {modal, handleModal, modalContent, addCity, handleChange, handleKeyPress} = useModal();
   return (
-    <ModalContext.Provider value={{modal, handleModal, modalContent, addCity, handleChange}}>
+    <ModalContext.Provider value={{modal, handleModal, modalContent, addCity, handleChange, handleKeyPress}}>
       <Modal/>
       {children}
     </ModalContext.Provider>

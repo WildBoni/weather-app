@@ -13,7 +13,8 @@ import {loadForecast} from '../actions/forecast';
 
 const Container = styled.div`
   background: ${props => props.styles.blueGradient};
-  padding-bottom: 1px;
+  min-height: 100vh;
+  padding-bottom: 30px;
 `
 
 function MobileSelectedCityContainer(props) {

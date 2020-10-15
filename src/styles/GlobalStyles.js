@@ -2,12 +2,17 @@ import {createGlobalStyle} from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
 
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     background-color: ${props => props.theme.lightestGray};
     font-family: 'Poppins', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    margin: 0;
   }
 
   h1 {

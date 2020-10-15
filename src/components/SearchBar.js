@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
-import{ThemeContext} from 'styled-components';
-import styled from 'styled-components';
+import styled, {ThemeContext} from 'styled-components';
 
 const Content = styled.div`
 	margin: 20px 0 20px 20px;

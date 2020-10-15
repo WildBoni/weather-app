@@ -3,9 +3,17 @@ import styled from 'styled-components';
 import SelectedCityTodayForecast from './SelectedCityTodayForecast';
 import ScrollContainer from 'react-indiana-drag-scroll';
 
+const Container = styled(ScrollContainer)`
+  @media(min-width:996px) {
+    height:313px;
+  }
+`
 const TodayForecast = styled.div`
   color: white;
   margin: 45px 10px;
+  @media(min-width:996px) {
+    margin: 30px 10px;
+  }
 `
 const ForecastContainer = styled.div`
   padding: 40px;
@@ -14,7 +22,6 @@ const ForecastContainer = styled.div`
   justify-content: start;
   position: relative;
   @media(min-width:996px) {
-
     flex-direction: column;
     padding: 20px;
 	}	
@@ -22,7 +29,7 @@ const ForecastContainer = styled.div`
 
 function SelectedCityTodayForecastContainer(props) {
   return(
-    <ScrollContainer>
+    <Container>
       <TodayForecast>
         <ForecastContainer>
         {
@@ -32,7 +39,7 @@ function SelectedCityTodayForecastContainer(props) {
         }
         </ForecastContainer>
       </TodayForecast>
-    </ScrollContainer>
+    </Container>
   )
 }
 
