@@ -44,7 +44,7 @@ function MobileMenuBar(props) {
           <img src="../images/Home.png" alt="Home" />
         </Item>
       </Link>
-      <Item onClick={props.showSearchbar} styles={themeContext}>
+      <Item onClick={props.toggleSearchbar} styles={themeContext}>
         <img src="../images/Search.png" alt="Search" />
       </Item>
       <Item onClick={props.geolocation} styles={themeContext}>

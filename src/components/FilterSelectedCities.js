@@ -10,24 +10,26 @@ const Content = styled.div`
     padding: 10px 10px;
     font-size: 18px;
   }
-  button {
-    padding: 12px 30px;
-    font-size: 18px;
-    background-color: #15908c;
-    border: none;
-    color: white;
-    cursor: pointer;
-    &:hover {
-      background-color: #065856;
-    }
+`
+const Button = styled.button`
+  margin-top: 10px;
+  padding: 12px 30px;
+  font-size: 18px;
+  background-color: ${props => props.close ? "#b31212" : "#15908c"};
+  border: none;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: ${props => props.close ? "#611010" : "#065856"};
   }
 `
 
-function FilterSelectedCities({handleClose, show, children}) {
+function FilterSelectedCities({handleClose, show, children, clearFilter}) {
   return(
     <Content visible={show}>
       {children}
-      <button onClick={handleClose}>Close</button>
+      <Button onClick={clearFilter}>Reset</Button>
+      <Button close onClick={handleClose}>Close</Button>
     </Content>
   )
 }

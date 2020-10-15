@@ -20,13 +20,17 @@ function MobileHomePage() {
     dispatch(setTextFilter(e.target.value));
   }
 
+  let clearFilter = () => {
+    dispatch(setTextFilter(''))
+  }
+
   let hideSearchbar = () => {
     setSearchbar(false);
   }
 
-  let showSearchbar = () => {
+  let toggleSearchbar = () => {
     textInput.current.focus();
-    setSearchbar(true);
+    setSearchbar(!searchbar);
   }
   
   function getGeolocation(e) {
@@ -49,10 +53,10 @@ function MobileHomePage() {
     <>
       <UserGreetings utente={userName} />
       <CitiesContainer/>
-      <FilterSelectedCities show={searchbar} handleClose={hideSearchbar}>
+      <FilterSelectedCities show={searchbar} clearFilter={clearFilter} handleClose={hideSearchbar}>
         <input type="text" placeholder="text: Rome" value={filters.text} onChange={onTextChange} ref={textInput}/>
       </FilterSelectedCities>
-      <MobileMenuBar showSearchbar={showSearchbar} geolocation={getGeolocation}/>
+      <MobileMenuBar toggleSearchbar={toggleSearchbar} geolocation={getGeolocation}/>
     </>
   )
 }

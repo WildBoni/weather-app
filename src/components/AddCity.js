@@ -4,6 +4,7 @@ import {ModalContext} from "../context/modalContext";
 
 const Button = styled.button`
 	align-items: center;
+	background-color: transparent;
 	border: none;
 	color: ${props => props.styles.blue};
 	cursor:pointer;
