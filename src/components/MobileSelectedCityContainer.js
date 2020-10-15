@@ -26,7 +26,10 @@ function MobileSelectedCityContainer(props) {
 
   let fetchSelectedCityForecast = (lat, lon) => dispatch(
     loadForecast(`${apiUrl}onecall?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric&exclude=minutely,alerts`)
-  ).then(dispatch(addToast({text: 'Forecast Loaded!'})));
+  ).then(
+    (res) => dispatch(addToast({text: `${details.name} forecast loaded.`})), 
+    (err) => dispatch(addToast({text: `${err}.`}))
+  )
 
   return(
     <Container styles={themeContext}>

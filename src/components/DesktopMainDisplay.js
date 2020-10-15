@@ -17,7 +17,10 @@ function DesktopMainDisplay(props) {
   
   let fetchSelectedCityForecast = (lat, lon) => dispatch(
     loadForecast(`${apiUrl}onecall?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric&exclude=minutely,alerts`)
-  ).then(dispatch(addToast({text: 'City forecast loaded!'})));
+  ).then(
+    (res) => dispatch(addToast({text: `${props.details.name} forecast loaded.`})), 
+    (err) => dispatch(addToast({text: `${err}.`}))
+  )
 
 	return (
 		<>

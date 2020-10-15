@@ -17,15 +17,14 @@ export const loadWeatherFailure = err => ({
 })
 
 export const loadWeather = city => dispatch => {
+  dispatch(loadWeatherRequest(city));
   return new Promise((resolve, reject) => {
-    dispatch(loadWeatherRequest(city));
     fetch(city)
       .then(response => {
         if(response.ok) {
           return response;
         } else {
-          let error = new Error(`Error ${response.cod}: ${response.message}`);
-          error.response = response;
+          let error = `Error: ${response.statusText}`;
           throw error;
         }
       }, 

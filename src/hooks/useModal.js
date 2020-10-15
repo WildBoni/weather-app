@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {loadWeather} from '../actions/weather';
 import {apiUrl} from '../shared/baseUrls';
+import {addToast} from '../actions/toasts';
 
 export default () => {
   let dispatch = useDispatch();
@@ -11,7 +12,11 @@ export default () => {
   let [inputContent, setInputContent] = useState('');
 
   let addCity = () => {
-    dispatch(loadWeather(`${apiUrl}weather?q=${inputContent}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`));
+    dispatch(loadWeather(`${apiUrl}weather?q=${inputContent}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`))
+      .then(
+        (res) => dispatch(addToast({text: `${res.name} weather added.`})), 
+        (err) => dispatch(addToast({text: `${err}.`}))
+      )
     handleModal();
   }
 

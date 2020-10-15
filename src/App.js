@@ -24,7 +24,10 @@ function App() {
     .entries(defaultCities.cities)
     .forEach(([key,val]) => {
       dispatch(loadWeather(`${apiUrl}weather?q=${val.name}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`))
-        .then(dispatch(addToast({text: 'City weather loaded!'})));
+        .then(
+          (res) => dispatch(addToast({text: `${res.name} weather loaded.`})), 
+          (err) => dispatch(addToast({text: `${err}.`}))
+        )
     });
 
   return (

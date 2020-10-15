@@ -1,7 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
+import {slideInRight} from 'react-animations';
+
+const Animation = keyframes`${slideInRight}`;
 
 const List = styled.li`
+  animation: 0.3s ${Animation};
   position: relative;
   padding: 10px 40px 10px 20px;
   background-color: #494949;

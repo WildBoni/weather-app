@@ -8,6 +8,7 @@ import {userName} from '../shared/userName';
 import MobileMenuBar from '../components/MobileMenuBar';
 import {setTextFilter} from '../actions/filters';
 import FilterSelectedCities from '../components/FilterSelectedCities';
+import {addToast} from '../actions/toasts';
 
 function MobileHomePage() {
   const [searchbar, setSearchbar] = useState(false);
@@ -32,7 +33,11 @@ function MobileHomePage() {
     e.preventDefault();
     if('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
-        dispatch(loadWeather(`${apiUrl}weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`));
+        dispatch(loadWeather(`${apiUrl}weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`))
+        .then(
+          () => dispatch(addToast({text: 'Your location has been added!'})), 
+          () => dispatch(addToast({text: 'City not found.'}))
+        )
       });
       //TODO: create a snackbar to show related messages
     } else {

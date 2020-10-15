@@ -21,7 +21,10 @@ function DesktopFavCitiesColumn() {
 		if('geolocation' in navigator) {
 			navigator.geolocation.getCurrentPosition((position) => {
 				dispatch(loadWeather(`${apiUrl}weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${process.env.REACT_APP_OPENWEATHER_API}&units=metric`))
-				.then(dispatch(addToast({text: 'Your location has been added!'})));
+				.then(
+					(res) => dispatch(addToast({text: `Your location has been added!`})), 
+					(err) => dispatch(addToast({text: `${err}.`}))
+				)
 			});
 			//TODO: create a snackbar to show related messages
 		} else {

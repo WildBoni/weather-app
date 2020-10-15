@@ -18,15 +18,14 @@ export const loadForecastFailure = err => ({
 })
 
 export const loadForecast = url => dispatch => {
+  dispatch(loadForecastRequest(url));
   return new Promise((resolve, reject) => {
-    dispatch(loadForecastRequest(url));
     fetch(url)
       .then(response => {
         if(response.ok) {
           return response;
         } else {
-          let error = new Error(`Error ${response.cod}: ${response.message}`);
-          error.response = response;
+          let error = `Error: ${response.statusText}`;
           throw error;
         }
       },

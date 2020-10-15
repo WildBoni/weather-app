@@ -1,25 +1,15 @@
 import React from 'react';
 import {useContext} from 'react';
-import {ThemeContext} from 'styled-components';
-import styled from 'styled-components';
+import styled, {ThemeContext, keyframes} from 'styled-components';
+import {fadeInDown} from 'react-animations';
 import {Link} from 'react-router-dom';
 import {weatherBackgroundColor} from '../shared/weatherBackgroundColor';
 
-const Article = styled.article`
-	align-items: center;
-	background: ${props => props.styles[props.cardColor]};
-	color: white;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	margin: 20px;	
-	padding: 25px;
-	@media(min-width:996px) {
-		margin-right: 0;
-	}	
-`
+const Animation = keyframes`${fadeInDown}`;
+
 const Container = styled.div`
 	position: relative;
+	animation: 0.3s ${Animation};
 `
 const Button = styled.button`
     background-color: #b31212;
@@ -48,6 +38,19 @@ const Button = styled.button`
 			outline: 0;
 		}
 
+`
+const Article = styled.article`
+	align-items: center;
+	background: ${props => props.styles[props.cardColor]};
+	color: white;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 20px;	
+	padding: 25px;
+	@media(min-width:996px) {
+		margin-right: 0;
+	}	
 `
 const Details = styled.div`
 	flex-basis: 0;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Content = styled.div`
-  display: ${props => props.visibility ? 'block' : 'none'};
+  display: ${props => props.visible ? 'block' : 'none'};
   margin: 0 auto;
   padding: 30px 0 0 0;
   text-align: center;
@@ -25,7 +25,7 @@ const Content = styled.div`
 
 function FilterSelectedCities({handleClose, show, children}) {
   return(
-    <Content visibility={show}>
+    <Content visible={show}>
       {children}
       <button onClick={handleClose}>Close</button>
     </Content>

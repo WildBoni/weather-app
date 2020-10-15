@@ -13,7 +13,7 @@ export const addToast = (options={}) => dispatch => {
     () => {
       dispatch(removeToast(toastId))
     },
-    3000
+    2000
   )
 }
 
