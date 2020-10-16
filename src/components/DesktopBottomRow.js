@@ -33,7 +33,7 @@ function DesktopBottomRow(props) {
   return (
     <Container>
       <StyledContainer>
-        <Title styles={themeContext}>Today</Title>
+        <Title styles={themeContext}>Temps</Title>
         <ForecastContainer>
           <SelectedCityTodayForecastContainer hourlyForecast={forecast.hourly}/>
         </ForecastContainer>
