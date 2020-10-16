@@ -8,7 +8,7 @@ const theme = {
   blueGradient: 'linear-gradient(316.01deg, #77B9F5 0%, #5374E7 100%)',
   uxOverlay: 'rgba(255,255,255,0.1)',
   boxShadow:  '5px 8px 14px 0 rgba(0,0,0,0.17)',
-  huge: '110px',
+  huge: '100px',
   important: '50px',
   title1: '28px',
   title2: '26px',

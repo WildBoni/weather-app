@@ -21,15 +21,26 @@ const Panel = styled.div`
     padding: 25px;
     position: absolute;
     background: ${props => props.styles.blueGradient};
-
-    img {
-      order: 2;
-      width: 85px;
-    }
-
-    span {
-      font-size: 50px;
-    }
+  }
+`
+let Image = styled.img`
+  max-width: 85px;
+  @media (min-width: 390px) {
+    max-width: none;
+  }
+  @media (min-width: 996px) {
+    order: 2;
+    max-width: 85px;
+  }
+`
+let Text = styled.span`
+  font-size: 80px;
+  font-weight: 700;
+  @media (min-width: 390px) {
+    font-size: 100px;
+  }
+  @media (min-width: 996px) {
+    font-size: 50px;
   }
 `
 
@@ -38,8 +49,8 @@ function SelectedCityTemperature(props){
 
   return(
     <Panel styles={themeContext}>
-      <img src={`${props.data.iconUrl}@4x.png`} alt={props.data.weather} />
-      <span className="huge-text">{props.data.temperature}°</span>
+      <Image src={`${props.data.iconUrl}@4x.png`} alt={props.data.weather} />
+      <Text>{props.data.temperature}°</Text>
     </Panel>
   )
 }
